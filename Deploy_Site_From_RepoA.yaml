@@ -26,4 +26,5 @@ jons:
       npm run build
 
     -name: Deploye
-      cd 
+      cd src/
+      aws s3 sync . s3://
