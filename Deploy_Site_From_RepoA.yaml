@@ -28,3 +28,5 @@ jons:
     -name: Deploye
       cd src/
       aws s3 sync . s3://
+
+      
