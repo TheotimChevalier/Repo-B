@@ -1,0 +1,32 @@
+on: 
+  push: 
+    paths:
+    -src//**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    -name: Checout Repo B
+    uses: actions/checkout@v3
+
+    -name: Init and Update Submodules
+    run: |
+      git submodule init
+      git submodule update --remote
+
+    -name: Install Node.js ans NPM dependencies
+      use: actions/setup-node@v3
+      with: 
+        node-version:'20.17.0' 
+    -run: |
+      cd src
+      npm install
+      npm run build
+
+    -name: Deploy to S3
+    run: |
+      cd src/C:\Projets_QDS\CI_CD\RepoA
+      aws s" sync . s3//mon-bucket-s3 --delete
