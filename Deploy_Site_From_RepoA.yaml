@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    -name: Checout Repo B
+    -name: Checout Repo-B
     uses: actions/checkout@v3
 
     -name: Init and Update Submodules
