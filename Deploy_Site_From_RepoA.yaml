@@ -33,45 +33,28 @@
 
 # name: Mise à jour du sous-module
 
-# on:
-#   push:
-#     branches:
-#       - main  # Remplacez par la branche appropriée
-
-# jobs:
-#   update-submodule:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout du dépôt
-#         uses: actions\/checkout@v2
-#         with:
-#           submodules: recursive  # Cela assure que les sous-modules sont également récupérés
-
-#       - name: Mise à jour du sous-module
-#         run: git submodule update --remote
 
 
-name: Update Repo B on Change
 
-on: 
+name: Mise à jour du sous-module
+
+on:
   push:
-    branches:
-      -main
+    paths:
+      - 'path\/to\/C:\Projets_QDS\CI_CD\RepoA\/*'  # Spécifiez le chemin vers le sous-module A dans le dépôt B
 
-jobs: 
-  update-repo-b:
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du dépôt
+        uses: actions\/checkout@v3
+        with:
+          submodules: recursive  # Cela assure que les sous-modules sont également récupérés
 
-  run-on: ubuntu-latest
-
-  steps:
-  -name: Checkout Repo A
-  uses: actions/checkout@v3
-
-  -name: Push change to repo B
-  run: |
-    git clone https://github.com/TheotimChevalier/Repo-B.git
-    cd repo-B
-    git submodule update -- remote
-    git add src
-    git commit -m "Update submodule Repo A"
-    git push
+      - name: Mise à jour du sous-module
+        run: |
+          git submodule update --remote
+          git add path\/to\/C:\Projets_QDS\CI_CD\RepoA  # Ajoute les modifications du sous-module
+          git commit -m \"Mise à jour automatique du sous-module\"
+          git push
