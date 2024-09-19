@@ -31,7 +31,6 @@
 #       cd src/C:\Projets_QDS\CI_CD\RepoA
 #       aws s" sync . s3//mon-bucket-s3 --delete
 
-# name: Mise à jour du sous-module
 
 
 
@@ -41,7 +40,8 @@ name: Mise à jour du sous-module
 on:
   push:
     paths:
-      - 'path\/to\/C:\Projets_QDS\CI_CD\RepoA\/*'  # Spécifiez le chemin vers le sous-module A dans le dépôt B
+      - 'path\/to\/C:\Projets_QDS\CI_CD\RepoA\/*'  
+    workflow_dispatch:
 
 jobs:
   update-submodule:
@@ -50,7 +50,7 @@ jobs:
       - name: Checkout du dépôt
         uses: actions\/checkout@v3
         with:
-          submodules: recursive  # Cela assure que les sous-modules sont également récupérés
+          submodules: recursive  
 
       - name: Mise à jour du sous-module
         run: |
