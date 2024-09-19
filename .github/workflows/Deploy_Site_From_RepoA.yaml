@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout du dépôt
-        uses: actions\checkout@v3
+        uses: https://github.com/TheotimChevalier/Repo-B.git\checkout@v3
         with:
           submodules: recursive 
           # Cette étape permet de récupérer le code du repo B pour exécuter les actions suivantes 
