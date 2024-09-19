@@ -3,8 +3,8 @@ name: Mise à jour du sous-module
 on:
   push:
     paths:
-      - 'https://github.com/TheotimChevalier/Repo-A.git'
-
+      - 'C:\Projets_QDS\CI_CD\RepoA'
+    workflow_dispatch:
 
 permissions:
   contents: write
