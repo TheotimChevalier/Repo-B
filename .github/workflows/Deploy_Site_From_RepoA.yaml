@@ -3,7 +3,7 @@ name: Mise à jour du sous-module
 on:
   push:
     paths:
-      - 'TheotimChevalier/Repo-A.git'
+      - 'https://github.com/TheotimChevalier/Repo-A.git'
     workflow_dispatch:
 
 permissions:
