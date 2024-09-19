@@ -23,6 +23,6 @@ jobs:
       - name: Mise à jour du sous-module
         run: |
           git submodule update --remote # Mettre à jour le sous-module avec les dernières modifications
-          git add https://github.com/TheotimChevalier/Repo-A.git  # Ajoute les modifications du sous-module
+          git add .  # Ajoute les modifications du sous-module
           git commit -m "Mise à jour automatique du sous-module" # Valide les changements
           git push
