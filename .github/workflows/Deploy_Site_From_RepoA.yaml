@@ -6,6 +6,9 @@ on:
       - 'https://github.com/TheotimChevalier/Repo-A.git'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update-submodule:
     runs-on: ubuntu-latest
