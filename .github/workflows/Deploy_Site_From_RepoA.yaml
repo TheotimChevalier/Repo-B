@@ -3,7 +3,7 @@ name: Mise à jour du sous-module
 on:
   push:
     paths:
-      - 'https://github.com/TheotimChevalier/Repo-A.git'
+      - 'src/*'
     workflow_dispatch:
 
 permissions:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout du dépôt
-        uses: actions/checkout@main
+        uses: actions/checkout@v3
         with:
           submodules: recursive 
           # Cette étape permet de récupérer le code du repo B pour exécuter les actions suivantes 
