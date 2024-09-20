@@ -9,7 +9,6 @@ workflow explication :
     end
     box blue Repo B
     participant infra
-    participant interne page 
     participant Submodul (Repo A)
     participant  WorkflowB
     end
