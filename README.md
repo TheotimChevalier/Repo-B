@@ -1,4 +1,4 @@
-sequenceDiagram :
+workflow explication :
 
 ```mermaid
 
