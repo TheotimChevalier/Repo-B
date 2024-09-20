@@ -1,3 +1,13 @@
+introduction 
+
+add submodul: 
+git submodule add https://github.com/TheotimChevalier/Repo-A.git apps/web
+
+
+
+
+
+
 workflow explication :
 
 ```mermaid
@@ -19,3 +29,6 @@ workflow explication :
      WorkflowB-->>Submodul (Repo A): 5)  Build
     WorkflowB-->>infra : 5)  Deployed
 ```
+
+
+
