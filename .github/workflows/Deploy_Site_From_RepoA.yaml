@@ -2,9 +2,10 @@ name: Mise à jour du sous-module
 
 on:
   push:
-    paths:
-      - 'src/*'
-    workflow_dispatch:
+    branche: -main
+      paths:
+        - 'https://github.com/TheotimChevalier/Repo-A.git'
+      workflow_dispatch:
 
 permissions:
   contents: write
