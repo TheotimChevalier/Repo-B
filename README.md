@@ -12,9 +12,10 @@ workflow explication :
     participant Submodul (Repo A)
     participant  WorkflowB
     end
-     WorkflowA->>   SRCwebsite: 1) What's new ?
-    SRCwebsite-->>  WorkflowA: 2) give all the news!
-     WorkflowA->>  WorkflowB: 3) give some update!
-     WorkflowB-->>  SRCwebsite: 4) look update 
-     WorkflowB-->>Submodul (Repo A): 5)  Do the update
+
+    SRCwebsite-->>  WorkflowA: 1) push
+     WorkflowA->>  WorkflowB: 3) activation workflow B 
+     WorkflowB-->>  SRCwebsite: 4) update submodul
+     WorkflowB-->>Submodul (Repo A): 5)  Build
+    WorkflowB-->>infra : 5)  Deployed
 ```
