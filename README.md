@@ -12,9 +12,9 @@ workflow explication :
     participant Submodul (Repo A)
     participant  WorkflowB
     end
-     WorkflowA->> 1)  SRCwebsite: What's new ?
-    SRCwebsite-->> 2) WorkflowA: give all the news!
-     WorkflowA->> 3) WorkflowB: give some update!
-     WorkflowB-->> 4) SRCwebsite: look update 
-     WorkflowB-->>5) Submodul (Repo A): Do the update
+     WorkflowA->>   SRCwebsite: 1) What's new ?
+    SRCwebsite-->>  WorkflowA: 2) give all the news!
+     WorkflowA->>  WorkflowB: 3) give some update!
+     WorkflowB-->>  SRCwebsite: 4) look update 
+     WorkflowB-->>Submodul (Repo A): 5)  Do the update
 ```
