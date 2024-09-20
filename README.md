@@ -10,11 +10,12 @@ sequenceDiagram :
     box blue Repo B
     participant infra
     participant interne page 
-    participant Submodul
+    participant Submodul (Repo A)
     participant yamlB
     end
     yamlA->>website: What's new ?
     website-->>yamlA: give all the news!
-    yamlA->>yamlB: we have some update!
-    yamlB-->>Submodul: Do the update
+    yamlA->>yamlB: give some update!
+    yamlB-->> website: look update 
+    yamlB-->>Submodul (Repo A): Do the update
 ```
