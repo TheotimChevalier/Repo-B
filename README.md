@@ -4,18 +4,18 @@ workflow explication :
 
     sequenceDiagram
     box Purple Repo A
-    participant website
-    participant yamlA
+    participant SRCwebsite
+    participant WorkflowA
     end
     box blue Repo B
     participant infra
     participant interne page 
     participant Submodul (Repo A)
-    participant yamlB
+    participant  WorkflowB
     end
-    yamlA->>website: What's new ?
-    website-->>yamlA: give all the news!
-    yamlA->>yamlB: give some update!
-    yamlB-->> website: look update 
-    yamlB-->>Submodul (Repo A): Do the update
+     WorkflowA->>SRCwebsite: What's new ?
+    SRCwebsite-->> WorkflowA: give all the news!
+     WorkflowA->> WorkflowB: give some update!
+     WorkflowB-->> SRCwebsite: look update 
+     WorkflowB-->>Submodul (Repo A): Do the update
 ```
