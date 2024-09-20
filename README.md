@@ -16,5 +16,5 @@ sequenceDiagram :
     yamlA->>website: What's new ?
     website-->>yamlA: give all the news!
     yamlA->>yamlB: we have some update!
-    yamlB->>Submodul: Do the update
+    yamlB-->>Submodul: Do the update
 ```
