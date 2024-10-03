@@ -99,9 +99,11 @@ Avec ces workflows automatisés, la gestion des sous-modules devient simple et e
 
 https://git-scm.com/book/en/v2/Git-Tools-Submodules
 
+https://www.youtube.com/watch?v=PKts7yCmlWk
+
 ## Workflows
 
-
+https://docs.github.com/fr/actions/writing-workflows/workflow-syntax-for-github-actions#onworkflow_callsecrets
 
 https://www.youtube.com/watch?v=fvqqTI3WscI
 
