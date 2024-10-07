@@ -19,14 +19,13 @@ jobs:
         run: |
           git clone https://github.com/TheotimChevalier/Repo-B.git
           cd Repo-B
-          git submodule update --init --recursive
+          git submodule update --init --recursive || exit 1
 
       - name: Créer ou utiliser une branche basée sur l'utilisateur
         run: |
           cd Repo-B
           git fetch origin
           BRANCH_NAME="update-${{ github.actor }}"
-          # Crée une nouvelle branche si elle n'existe pas
           if git rev-parse --verify origin/$BRANCH_NAME; then
             git checkout $BRANCH_NAME
           else
@@ -36,8 +35,8 @@ jobs:
       - name: Mettre à jour le sous-module dans Repo B
         run: |
           cd Repo-B
-          git submodule update --remote --merge
-          if git diff --staged --quiet; then
+          git submodule update --remote --merge || exit 1
+          if git diff --quiet; then
             echo "No changes to commit"
           else
             git add .
@@ -50,5 +49,4 @@ jobs:
         run: |
           cd Repo-B
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
-          git push origin $BRANCH_NAME
-          git push origin $BRANCH_NAME
+          git push origin $BRANCH_NAME || exit 1
