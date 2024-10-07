@@ -1,8 +1,9 @@
+name: Update Repo B with Submodule
+
 on:
   push:
     branches:
       - main
-
 
 permissions:
   contents: write
@@ -23,9 +24,9 @@ jobs:
       - name: Créer ou utiliser une branche basée sur l'utilisateur
         run: |
           cd Repo-B
+          git fetch origin
           BRANCH_NAME="update-${{ github.actor }}"
           # Crée une nouvelle branche si elle n'existe pas
-          git fetch origin
           if git rev-parse --verify origin/$BRANCH_NAME; then
             git checkout $BRANCH_NAME
           else
@@ -36,12 +37,18 @@ jobs:
         run: |
           cd Repo-B
           git submodule update --remote --merge
-          git add . 
-          git commit -m "Update submodule Repo A by ${{ github.actor }}"
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git add .
+            git commit -m "Update submodule Repo A by ${{ github.actor }}"
+          fi
 
       - name: Push changes to Repo B
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd Repo-B
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
+          git push origin $BRANCH_NAME
           git push origin $BRANCH_NAME
