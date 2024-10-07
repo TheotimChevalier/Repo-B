@@ -103,7 +103,7 @@ https://www.youtube.com/watch?v=PKts7yCmlWk
 
 ## Workflows
 
-https://docs.github.com/fr/actions/writing-workflows/workflow-syntax-for-github-actions#onworkflow_callsecrets
+https://docs.github.com/fr/actions/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow
 
 https://www.youtube.com/watch?v=fvqqTI3WscI
 
