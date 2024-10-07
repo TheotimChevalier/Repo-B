@@ -93,6 +93,18 @@ Avec ces workflows automatisés, la gestion des sous-modules devient simple et e
 
 ---
 
+## Commandes supression sous-module
+
+```bash
+$ git submodule deinit RepoA
+$ git rm RepoA
+$ git commit -m "Removed RepoA module"
+$ git push
+
+```
+
+
+
 # Documentation intéressante
 
 ## Submodule
