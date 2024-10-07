@@ -2,9 +2,9 @@ name: Mise à jour du sous-module
 
 on:
   push:
-      paths:
-        - 'https://github.com/TheotimChevalier/Repo-A.git'
-      workflow_dispatch:
+    branches:
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -16,13 +16,31 @@ jobs:
       - name: Checkout du dépôt
         uses: actions/checkout@v3
         with:
-          submodules: recursive 
-          # Cette étape permet de récupérer le code du repo B pour exécuter les actions suivantes 
+          submodules: recursive # Récupère les sous-modules
 
+      - name: Configurer Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Créer ou utiliser une branche basée sur l'utilisateur
+        run: |
+          BRANCH_NAME="update-${{ github.actor }}"
+          # Crée une nouvelle branche s'il n'y en a pas
+          if git rev-parse --verify origin/$BRANCH_NAME; then
+            git checkout $BRANCH_NAME
+          else
+            git checkout -b $BRANCH_NAME
+          fi
 
       - name: Mise à jour du sous-module
         run: |
-          git submodule update --remote # Mettre à jour le sous-module avec les dernières modifications
-          git add https://github.com/TheotimChevalier/Repo-A.git  # Ajoute les modifications du sous-module
-          git commit -m "Mise à jour automatique du sous-module" # Valide les changements
-          git push
+          git submodule update --remote --merge # Mettre à jour le sous-module
+          git add <chemin_vers_sous_module>  # Remplacer par le chemin correct du sous-module
+          git commit -m "Mise à jour automatique du sous-module par ${{ github.actor }}"
+
+      - name: Push des changements
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push origin $BRANCH_NAME

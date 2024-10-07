@@ -1,0 +1,66 @@
+name: Update Repo B on Change
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-repo-b:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo A
+        uses: actions/checkout@main
+        # Cette étape permet de récupérer le code du repo A pour exécuter les actions suivantes
+
+      - name: Push change to repo B
+        run: |
+          git clone https:\\github.com\TheotimChevalier\Repo-B.git # Cloner le repo B pour récupérer les dernières mises à jour
+          cd Repo-B
+          git submodule update --remote # Mettre à jour le sous-module avec les dernières modifications
+          git add src # Ajouter les modifications
+          git commit -m "Update submodule Repo A" # Valider les changements
+          git pushname: Update Repo B on Change
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-repo-b:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo A
+        uses: actions/checkout@v3
+
+      - name: Cloner Repo B
+        run: |
+          git clone https://github.com/TheotimChevalier/Repo-B.git
+          cd Repo-B
+          git submodule update --init --recursive
+
+      - name: Créer ou utiliser une branche basée sur l'utilisateur
+        run: |
+          cd Repo-B
+          BRANCH_NAME="update-${{ github.actor }}"
+          # Crée une nouvelle branche si elle n'existe pas
+          if git rev-parse --verify origin/$BRANCH_NAME; then
+            git checkout $BRANCH_NAME
+          else
+            git checkout -b $BRANCH_NAME
+          fi
+
+      - name: Mettre à jour le sous-module dans Repo B
+        run: |
+          cd Repo-B
+          git submodule update --remote --merge
+          git add <chemin_vers_sous_module> # Remplacer par le chemin correct
+          git commit -m "Update submodule Repo A by ${{ github.actor }}"
+
+      - name: Push changes to Repo B
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd Repo-B
+          git push origin $BRANCH_NAME
