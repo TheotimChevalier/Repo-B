@@ -25,6 +25,7 @@ jobs:
           cd Repo-B
           BRANCH_NAME="update-${{ github.actor }}"
           # Crée une nouvelle branche si elle n'existe pas
+          git fetch origin
           if git rev-parse --verify origin/$BRANCH_NAME; then
             git checkout $BRANCH_NAME
           else
