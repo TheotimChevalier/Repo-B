@@ -35,7 +35,7 @@ jobs:
         run: |
           cd Repo-B
           git submodule update --remote --merge
-          git add <https://github.com/TheotimChevalier/Repo-A.git # Remplacer par le chemin correct
+          git add <https://github.com/TheotimChevalier/Repo-A.git 
           git commit -m "Update submodule Repo A by ${{ github.actor }}"
 
       - name: Push changes to Repo B

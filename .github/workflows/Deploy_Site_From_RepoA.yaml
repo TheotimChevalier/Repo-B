@@ -36,7 +36,7 @@ jobs:
       - name: Mise à jour du sous-module
         run: |
           git submodule update --remote --merge # Mettre à jour le sous-module
-          git add https://github.com/TheotimChevalier/Repo-A.git  # Remplacer par le chemin correct du sous-module
+          git add https://github.com/TheotimChevalier/Repo-A.git  
           git commit -m "Mise à jour automatique du sous-module par ${{ github.actor }}"
 
       - name: Push des changements
