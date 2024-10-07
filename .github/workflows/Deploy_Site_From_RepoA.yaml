@@ -20,8 +20,8 @@ jobs:
 
       - name: Configurer Git
         run: |
-          git config TheotimChevalier "github-actions"
-          git config Théotimc.chevalier@free.fr "github-actions@github.com"
+          git config user.name \"TheotimChevalier\"
+          git config user.email \"Théotimc.chevalier@free.fr\"
 
       - name: Créer ou utiliser une branche basée sur l'utilisateur
         run: |
