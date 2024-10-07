@@ -21,7 +21,7 @@ jobs:
       - name: Configurer Git
         run: |
           git config user.name \"TheotimChevalier\"
-          git config user.email \"Théotimc.chevalier@free.fr\"
+          git config user.email \"Theotimc.chevalier@free.fr\"
 
       - name: Créer ou utiliser une branche basée sur l'utilisateur
         run: |
