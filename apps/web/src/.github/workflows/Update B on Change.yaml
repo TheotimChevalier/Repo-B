@@ -3,6 +3,10 @@ on:
     branches:
       - main
 
+
+permissions:
+  contents: write
+
 jobs:
   update-repo-b:
     runs-on: ubuntu-latest
