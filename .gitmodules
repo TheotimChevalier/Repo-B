@@ -3,4 +3,4 @@
 	url = https://github.com/TheotimChevalier/Repo-A.git
 
 
-fatal: not a git repository: C:/Projets_QDS/CI_CD/RepoB/apps/web/src/../.git/modules/src
+# fatal: not a git repository: C:/Projets_QDS/CI_CD/RepoB/apps/web/src/../.git/modules/src
