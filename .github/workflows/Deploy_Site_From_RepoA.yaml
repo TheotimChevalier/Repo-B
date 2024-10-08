@@ -23,8 +23,8 @@ jobs:
       - name: Configurer Git
         run: |
           echo "Configuration de Git"
-          git config user.name "TheotimChevalier"
-          git config user.email "Theotimc.chevalier@free.fr"
+          git config --global user.name "TheotimChevalier"
+          git config --global user.email "Theotimc.chevalier@free.fr"
 
       - name: Vérification de l'état du sous-module
         run: |
