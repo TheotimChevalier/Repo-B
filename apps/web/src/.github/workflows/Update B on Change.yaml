@@ -55,6 +55,3 @@ jobs:
 
 
 
-2024-10-08 08:52:16.468 [warning] [Git][config] git config failed: Failed to execute git
-2024-10-08 08:52:16.621 [info] > git reflog main --grep-reflog=branch: Created from *. [135ms]
-2024-10-08 08:52:16.700 [warning] [Model][getRepositoryExact] Failed to get repository realpath for: "c:\Projets_QDS\CI_CD\RepoB\src". Error:Error: ENOENT: no such file or directory, realpath 'c:\Projets_QDS\CI_CD\RepoB\src'
