@@ -62,3 +62,21 @@ jobs:
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
           git push origin $BRANCH_NAME || exit 1
+
+
+
+2024-10-08 08:21:02.974 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [139ms]
+2024-10-08 08:21:02.974 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-08 08:21:03.331 [info] > git ls-files --stage -- C:\Projets_QDS\CI_CD\RepoB\.github\workflows\Deploy_Site_From_RepoA.yaml [116ms]
+2024-10-08 08:21:03.465 [info] > git cat-file -s fcf903e23db3e189d5c5cfbb832fcfa164f4bd4a [119ms]
+2024-10-08 08:21:03.608 [info] > git show --textconv :.github/workflows/Deploy_Site_From_RepoA.yaml [124ms]
+2024-10-08 08:21:04.350 [info] > git config --get commit.template [121ms]
+2024-10-08 08:21:04.355 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [111ms]
+2024-10-08 08:21:04.493 [info] > git status -z -uall [120ms]
+2024-10-08 08:21:04.637 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [126ms]
+2024-10-08 08:21:04.770 [info] > git config --local branch.main.vscode-merge-base [116ms]
+2024-10-08 08:21:04.771 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-08 08:21:04.916 [info] > git reflog main --grep-reflog=branch: Created from *. [130ms]
+2024-10-08 08:21:05.012 [warning] [Model][getRepositoryExact] Failed to get repository realpath for: "c:\Projets_QDS\CI_CD\RepoB\src". Error:Error: ENOENT: no such file or directory, realpath 'c:\Projets_QDS\CI_CD\RepoB\src'
+2024-10-08 08:21:05.060 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [128ms]
+2024-10-08 08:21:05.060 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
