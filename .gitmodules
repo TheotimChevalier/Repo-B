@@ -1,5 +1,5 @@
-[submodule "\\apps\\web\\src"]
-	path = \\apps\\web\\src
+[submodule "apps/web/src"]
+	path = apps/web/src
 	url = https://github.com/TheotimChevalier/Repo-A.git
 
 
