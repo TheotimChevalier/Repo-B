@@ -69,19 +69,3 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
           git push origin $BRANCH_NAME || { echo "Erreur lors du push"; exit 1; }
 
-
-git submodule add https://github.com/TheotimChevalier/Repo-A.git apps/web/src
-
-
-# Désinitialiser tous les sous-modules
-git submodule deinit -f --all &&
-
-# Supprimer les entrées de sous-module du fichier .gitmodules
-git config -f .gitmodules --remove-section submodule.apps/web/src &&
-
-# Supprimer le dossier du sous-module de l'arborescence de travail
-rm -rf apps/web/src &&
-
-# Réinitialiser les sous-modules
-git submodule update --init --recursive
-
