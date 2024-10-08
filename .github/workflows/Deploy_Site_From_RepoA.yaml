@@ -68,3 +68,5 @@ jobs:
           echo "Pushing changes to remote repository"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
           git push origin $BRANCH_NAME || { echo "Erreur lors du push"; exit 1; }
+
+          [warning] [Model][getRepositoryExact] Failed to get repository realpath for: "c:\Projets_QDS\CI_CD\RepoB\src". Error:Error: ENOENT: no such file or directory, realpath 'c:\Projets_QDS\CI_CD\RepoB\src'
