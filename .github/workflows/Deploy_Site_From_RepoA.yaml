@@ -65,18 +65,144 @@ jobs:
 
 
 
-2024-10-08 08:21:02.974 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [139ms]
-2024-10-08 08:21:02.974 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
-2024-10-08 08:21:03.331 [info] > git ls-files --stage -- C:\Projets_QDS\CI_CD\RepoB\.github\workflows\Deploy_Site_From_RepoA.yaml [116ms]
-2024-10-08 08:21:03.465 [info] > git cat-file -s fcf903e23db3e189d5c5cfbb832fcfa164f4bd4a [119ms]
-2024-10-08 08:21:03.608 [info] > git show --textconv :.github/workflows/Deploy_Site_From_RepoA.yaml [124ms]
-2024-10-08 08:21:04.350 [info] > git config --get commit.template [121ms]
-2024-10-08 08:21:04.355 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [111ms]
-2024-10-08 08:21:04.493 [info] > git status -z -uall [120ms]
-2024-10-08 08:21:04.637 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [126ms]
-2024-10-08 08:21:04.770 [info] > git config --local branch.main.vscode-merge-base [116ms]
-2024-10-08 08:21:04.771 [warning] [Git][config] git config failed: Failed to execute git
-2024-10-08 08:21:04.916 [info] > git reflog main --grep-reflog=branch: Created from *. [130ms]
-2024-10-08 08:21:05.012 [warning] [Model][getRepositoryExact] Failed to get repository realpath for: "c:\Projets_QDS\CI_CD\RepoB\src". Error:Error: ENOENT: no such file or directory, realpath 'c:\Projets_QDS\CI_CD\RepoB\src'
-2024-10-08 08:21:05.060 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [128ms]
-2024-10-08 08:21:05.060 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-08 08:23:09.814 [info] > git config --get commit.template [136ms]
+2024-10-08 08:23:09.828 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [135ms]
+2024-10-08 08:23:09.972 [info] > git status -z -uall [130ms]
+2024-10-08 08:23:10.114 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [125ms]
+2024-10-08 08:23:10.246 [info] > git config --local branch.main.vscode-merge-base [119ms]
+2024-10-08 08:23:10.246 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-08 08:23:10.321 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z --shortstat --diff-merges=first-parent -n50 --skip=0 --topo-order --decorate=full c0053e8f02b1d8842153fc1299195ac1e51f1b95 [229ms]
+2024-10-08 08:23:10.404 [info] > git reflog main --grep-reflog=branch: Created from *. [146ms]
+2024-10-08 08:23:10.490 [warning] [Model][getRepositoryExact] Failed to get repository realpath for: "c:\Projets_QDS\CI_CD\RepoB\src". Error:Error: ENOENT: no such file or directory, realpath 'c:\Projets_QDS\CI_CD\RepoB\src'
+2024-10-08 08:23:10.559 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [142ms]
+2024-10-08 08:23:10.559 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-08 08:23:10.590 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z --shortstat --diff-merges=first-parent -n50 --skip=0 --topo-order --decorate=full c0053e8f02b1d8842153fc1299195ac1e51f1b95 [245ms]
+2024-10-08 08:23:11.896 [info] > git add -A -- C:\Projets_QDS\CI_CD\RepoB\.github\workflows\Deploy_Site_From_RepoA.yaml [145ms]
+2024-10-08 08:23:12.030 [info] > git config --get commit.template [120ms]
+2024-10-08 08:23:12.045 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [122ms]
+2024-10-08 08:23:12.178 [info] > git status -z -uall [120ms]
+2024-10-08 08:23:12.313 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [122ms]
+2024-10-08 08:23:12.441 [info] > git config --local branch.main.vscode-merge-base [117ms]
+2024-10-08 08:23:12.441 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-08 08:23:12.600 [info] > git reflog main --grep-reflog=branch: Created from *. [145ms]
+2024-10-08 08:23:12.706 [warning] [Model][getRepositoryExact] Failed to get repository realpath for: "c:\Projets_QDS\CI_CD\RepoB\src". Error:Error: ENOENT: no such file or directory, realpath 'c:\Projets_QDS\CI_CD\RepoB\src'
+2024-10-08 08:23:12.746 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [134ms]
+2024-10-08 08:23:12.746 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-08 08:23:13.646 [info] > git show --textconv :.git/COMMIT_EDITMSG [141ms]
+2024-10-08 08:23:13.661 [info] > git ls-files --stage -- C:\Projets_QDS\CI_CD\RepoB\.git\COMMIT_EDITMSG [141ms]
+2024-10-08 08:23:14.224 [info] > git ls-files --stage -- C:\Projets_QDS\CI_CD\RepoB\.git\COMMIT_EDITMSG [144ms]
+2024-10-08 08:23:14.362 [info] > git show --textconv :.git/COMMIT_EDITMSG [122ms]
+2024-10-08 08:23:15.709 [info] > git -c user.useConfigOnly=true commit --quiet [2963ms]
+2024-10-08 08:23:15.709 [info] Aborting commit due to empty commit message.
+2024-10-08 08:23:15.861 [info] > git config --get commit.template [139ms]
+2024-10-08 08:23:15.871 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [133ms]
+2024-10-08 08:23:16.021 [info] > git status -z -uall [137ms]
+2024-10-08 08:23:16.037 [info] > git show --textconv :.github/workflows/Deploy_Site_From_RepoA.yaml [136ms]
+2024-10-08 08:23:16.048 [info] > git ls-files --stage -- C:\Projets_QDS\CI_CD\RepoB\.github\workflows\Deploy_Site_From_RepoA.yaml [133ms]
+2024-10-08 08:23:16.166 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [133ms]
+2024-10-08 08:23:16.194 [info] > git cat-file -s 29b0cd0250454d0620ae98099d8a9863e4bd749b [132ms]
+2024-10-08 08:23:16.310 [info] > git config --local branch.main.vscode-merge-base [132ms]
+2024-10-08 08:23:16.311 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-08 08:23:16.455 [info] > git reflog main --grep-reflog=branch: Created from *. [132ms]
+2024-10-08 08:23:16.535 [warning] [Model][getRepositoryExact] Failed to get repository realpath for: "c:\Projets_QDS\CI_CD\RepoB\src". Error:Error: ENOENT: no such file or directory, realpath 'c:\Projets_QDS\CI_CD\RepoB\src'
+2024-10-08 08:23:16.589 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [122ms]
+2024-10-08 08:23:16.590 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-08 08:23:26.914 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [212ms]
+2024-10-08 08:23:27.050 [info] > git config --get commit.template [122ms]
+2024-10-08 08:23:27.193 [info] > git config --get commit.template [128ms]
+2024-10-08 08:23:27.196 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [121ms]
+2024-10-08 08:23:27.338 [info] > git status -z -uall [128ms]
+2024-10-08 08:23:27.481 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [130ms]
+2024-10-08 08:23:27.518 [info] > git config --get commit.template [134ms]
+2024-10-08 08:23:27.541 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [142ms]
+2024-10-08 08:23:27.638 [info] > git config --local branch.main.vscode-merge-base [144ms]
+2024-10-08 08:23:27.638 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-08 08:23:27.690 [info] > git status -z -uall [133ms]
+2024-10-08 08:23:27.796 [info] > git reflog main --grep-reflog=branch: Created from *. [144ms]
+2024-10-08 08:23:27.835 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [132ms]
+2024-10-08 08:23:27.947 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [138ms]
+2024-10-08 08:23:27.948 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-08 08:23:27.986 [info] > git config --local branch.main.vscode-merge-base [137ms]
+2024-10-08 08:23:27.986 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-08 08:23:28.105 [info] > git merge-base refs/heads/main refs/remotes/origin/main [147ms]
+2024-10-08 08:23:28.154 [info] > git reflog main --grep-reflog=branch: Created from *. [151ms]
+2024-10-08 08:23:28.213 [warning] [Model][getRepositoryExact] Failed to get repository realpath for: "c:\Projets_QDS\CI_CD\RepoB\src". Error:Error: ENOENT: no such file or directory, realpath 'c:\Projets_QDS\CI_CD\RepoB\src'
+2024-10-08 08:23:28.236 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z --shortstat --diff-merges=first-parent -n50 --skip=0 --topo-order --decorate=full 9aa7c3679e7e47e170220b833177a926fe031d89 c0053e8f02b1d8842153fc1299195ac1e51f1b95 [262ms]
+2024-10-08 08:23:28.278 [info] > git -c core.longpaths=true rev-list --count --left-right refs/heads/main...refs/remotes/origin/main [161ms]
+2024-10-08 08:23:28.300 [info] > git ls-files --stage -- C:\Projets_QDS\CI_CD\RepoB\.github\workflows\Deploy_Site_From_RepoA.yaml [152ms]
+2024-10-08 08:23:28.314 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [146ms]
+2024-10-08 08:23:28.314 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-08 08:23:28.429 [info] > git diff --name-status -z --diff-filter=ADMR c0053e8f02b1d8842153fc1299195ac1e51f1b95...refs/remotes/origin/main [139ms]
+2024-10-08 08:23:28.451 [info] > git cat-file -s 29b0cd0250454d0620ae98099d8a9863e4bd749b [138ms]
+2024-10-08 08:23:28.600 [info] > git show --textconv :.github/workflows/Deploy_Site_From_RepoA.yaml [133ms]
+2024-10-08 08:23:29.282 [info] > git config --get commit.template [120ms]
+2024-10-08 08:23:29.296 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [122ms]
+2024-10-08 08:23:29.436 [info] > git status -z -uall [126ms]
+2024-10-08 08:23:29.581 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [130ms]
+2024-10-08 08:23:29.719 [info] > git config --local branch.main.vscode-merge-base [125ms]
+2024-10-08 08:23:29.719 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-08 08:23:29.875 [info] > git reflog main --grep-reflog=branch: Created from *. [143ms]
+2024-10-08 08:23:29.966 [warning] [Model][getRepositoryExact] Failed to get repository realpath for: "c:\Projets_QDS\CI_CD\RepoB\src". Error:Error: ENOENT: no such file or directory, realpath 'c:\Projets_QDS\CI_CD\RepoB\src'
+2024-10-08 08:23:30.011 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [125ms]
+2024-10-08 08:23:30.012 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-08 08:23:31.400 [info] > git log --oneline --cherry main...main@{upstream} -- [141ms]
+2024-10-08 08:23:32.559 [info] > git pull --tags origin main [1144ms]
+2024-10-08 08:23:32.559 [info] From https://github.com/TheotimChevalier/Repo-B
+ * branch            main       -> FETCH_HEAD
+2024-10-08 08:23:33.936 [info] > git ls-files --stage -- C:\Projets_QDS\CI_CD\RepoB\.github\workflows\Deploy_Site_From_RepoA.yaml [126ms]
+2024-10-08 08:23:34.064 [info] > git cat-file -s 29b0cd0250454d0620ae98099d8a9863e4bd749b [117ms]
+2024-10-08 08:23:34.201 [info] > git show --textconv :.github/workflows/Deploy_Site_From_RepoA.yaml [124ms]
+2024-10-08 08:23:34.893 [info] > git push origin main:main [2323ms]
+2024-10-08 08:23:34.893 [info] To https://github.com/TheotimChevalier/Repo-B.git
+   c0053e8..9aa7c36  main -> main
+2024-10-08 08:23:35.046 [info] > git config --get commit.template [139ms]
+2024-10-08 08:23:35.061 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [138ms]
+2024-10-08 08:23:35.197 [info] > git status -z -uall [121ms]
+2024-10-08 08:23:35.349 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [137ms]
+2024-10-08 08:23:35.476 [info] > git config --local branch.main.vscode-merge-base [114ms]
+2024-10-08 08:23:35.476 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-08 08:23:35.634 [info] > git reflog main --grep-reflog=branch: Created from *. [146ms]
+2024-10-08 08:23:35.712 [warning] [Model][getRepositoryExact] Failed to get repository realpath for: "c:\Projets_QDS\CI_CD\RepoB\src". Error:Error: ENOENT: no such file or directory, realpath 'c:\Projets_QDS\CI_CD\RepoB\src'
+2024-10-08 08:23:35.775 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [127ms]
+2024-10-08 08:23:35.775 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-08 08:23:35.921 [info] > git merge-base refs/heads/main refs/remotes/origin/main [133ms]
+2024-10-08 08:23:36.046 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z --shortstat --diff-merges=first-parent -n50 --skip=0 --topo-order --decorate=full 9aa7c3679e7e47e170220b833177a926fe031d89 [247ms]
+2024-10-08 08:23:36.089 [info] > git -c core.longpaths=true rev-list --count --left-right refs/heads/main...refs/remotes/origin/main [153ms]
+2024-10-08 08:23:36.218 [info] > git ls-files --stage -- C:\Projets_QDS\CI_CD\RepoB\.github\workflows\Deploy_Site_From_RepoA.yaml [129ms]
+2024-10-08 08:23:36.231 [info] > git diff --name-status -z --diff-filter=ADMR 9aa7c3679e7e47e170220b833177a926fe031d89...refs/remotes/origin/main [129ms]
+2024-10-08 08:23:36.355 [info] > git cat-file -s 29b0cd0250454d0620ae98099d8a9863e4bd749b [125ms]
+2024-10-08 08:23:36.492 [info] > git show --textconv :.github/workflows/Deploy_Site_From_RepoA.yaml [121ms]
+2024-10-08 08:23:37.229 [info] > git config --get commit.template [137ms]
+2024-10-08 08:23:37.241 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [135ms]
+2024-10-08 08:23:37.392 [info] > git status -z -uall [137ms]
+2024-10-08 08:23:37.525 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [120ms]
+2024-10-08 08:23:37.654 [info] > git config --local branch.main.vscode-merge-base [116ms]
+2024-10-08 08:23:37.655 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-08 08:23:37.800 [info] > git reflog main --grep-reflog=branch: Created from *. [133ms]
+2024-10-08 08:23:37.906 [warning] [Model][getRepositoryExact] Failed to get repository realpath for: "c:\Projets_QDS\CI_CD\RepoB\src". Error:Error: ENOENT: no such file or directory, realpath 'c:\Projets_QDS\CI_CD\RepoB\src'
+2024-10-08 08:23:37.943 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [132ms]
+2024-10-08 08:23:37.943 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-08 08:24:03.392 [info] > git fetch [997ms]
+2024-10-08 08:24:03.533 [info] > git config --get commit.template [124ms]
+2024-10-08 08:24:03.545 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [121ms]
+2024-10-08 08:24:03.677 [info] > git status -z -uall [119ms]
+2024-10-08 08:24:03.807 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [118ms]
+2024-10-08 08:24:03.937 [info] > git config --local branch.main.vscode-merge-base [117ms]
+2024-10-08 08:24:03.937 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-08 08:24:04.091 [info] > git reflog main --grep-reflog=branch: Created from *. [142ms]
+2024-10-08 08:24:04.199 [warning] [Model][getRepositoryExact] Failed to get repository realpath for: "c:\Projets_QDS\CI_CD\RepoB\src". Error:Error: ENOENT: no such file or directory, realpath 'c:\Projets_QDS\CI_CD\RepoB\src'
+2024-10-08 08:24:04.222 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [117ms]
+2024-10-08 08:24:04.222 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
+2024-10-08 08:24:04.662 [info] > git ls-files --stage -- C:\Projets_QDS\CI_CD\RepoB\.github\workflows\Deploy_Site_From_RepoA.yaml [129ms]
+2024-10-08 08:24:04.798 [info] > git cat-file -s 29b0cd0250454d0620ae98099d8a9863e4bd749b [122ms]
+2024-10-08 08:24:04.929 [info] > git show --textconv :.github/workflows/Deploy_Site_From_RepoA.yaml [119ms]
+2024-10-08 08:24:05.673 [info] > git config --get commit.template [138ms]
+2024-10-08 08:24:05.681 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [133ms]
+2024-10-08 08:24:05.832 [info] > git status -z -uall [137ms]
+2024-10-08 08:24:05.972 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [126ms]
+2024-10-08 08:24:06.107 [info] > git config --local branch.main.vscode-merge-base [122ms]
+2024-10-08 08:24:06.107 [warning] [Git][config] git config failed: Failed to execute git
+2024-10-08 08:24:06.251 [info] > git reflog main --grep-reflog=branch: Created from *. [130ms]
+2024-10-08 08:24:06.353 [warning] [Model][getRepositoryExact] Failed to get repository realpath for: "c:\Projets_QDS\CI_CD\RepoB\src". Error:Error: ENOENT: no such file or directory, realpath 'c:\Projets_QDS\CI_CD\RepoB\src'
+2024-10-08 08:24:06.383 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [119ms]
+2024-10-08 08:24:06.383 [info] fatal: ref refs/remotes/origin/HEAD is not a symbolic ref
