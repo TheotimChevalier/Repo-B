@@ -17,56 +17,6 @@ jobs:
       - name: Checkout du dépôt principal avec sous-modules
         uses: actions/checkout@v3
         with:
-          submodules: true  # Assure que les sous-modules sont initialisés
-          fetch-depth: 0     # Récupère tout l'historique pour éviter les erreurs lors de la mise à jour
-
-      - name: Configurer Git
-        run: |
-          git config user.name "TheotimChevalier"
-          git config user.email "Theotimc.chevalier@free.fr"
-
-      - name: Vérification de l'état du sous-module
-        run: |
-          git submodule status
-
-      - name: Créer ou utiliser une branche basée sur l'utilisateur
-        run: |
-          BRANCH_NAME="update-${{ github.actor }}"
-          git fetch origin
-          if git rev-parse --verify origin/$BRANCH_NAME; then
-            git checkout $BRANCH_NAME
-          else
-            git checkout -b $BRANCH_NAME
-          fi
-
-      - name: Mise à jour du sous-module
-        run: |
-          git submodule update --remote --merge
-          if git diff --quiet; then
-            echo "Pas de modifications dans le sous-module"
-          else
-            git add .
-            git commit -m "Mise à jour automatique du sous-module par ${{ github.actor }}"
-          fi
-name: Mise à jour du sous-module
-
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-jobs:
-  update-submodule:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout du dépôt principal avec sous-modules
-        uses: actions/checkout@v3
-        with:
           submodules: true
           fetch-depth: 0
 
