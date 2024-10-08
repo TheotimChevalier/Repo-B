@@ -48,5 +48,8 @@ jobs:
           fi
 
       - name: Push des changements
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Utilisation du token
         run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
           git push origin $BRANCH_NAME
