@@ -48,6 +48,56 @@ jobs:
             git add .
             git commit -m "Mise à jour automatique du sous-module par ${{ github.actor }}"
           fi
+name: Mise à jour du sous-module
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du dépôt principal avec sous-modules
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Configurer Git
+        run: |
+          git config user.name "TheotimChevalier"
+          git config user.email "Theotimc.chevalier@free.fr"
+
+      - name: Vérification de l'état du sous-module
+        run: |
+          git submodule status || { echo "Échec de la vérification de l'état du sous-module"; exit 1; }
+
+      - name: Créer ou utiliser une branche basée sur l'utilisateur
+        run: |
+          BRANCH_NAME="update-${{ github.actor }}"
+          git fetch origin
+          if git rev-parse --verify origin/$BRANCH_NAME; then
+            git checkout $BRANCH_NAME
+          else
+            git checkout -b $BRANCH_NAME
+          fi
+
+      - name: Mise à jour du sous-module
+        run: |
+          git submodule update --remote --merge || { echo "Échec de la mise à jour du sous-module"; exit 1; }
+          if git diff --quiet; then
+            echo "Pas de modifications dans le sous-module"
+          else
+            git add .
+            git commit -m "Mise à jour automatique du sous-module par ${{ github.actor }}" || echo "Aucun changement à commettre"
+          fi
 
       - name: Diagnostic Git avant push
         run: |
@@ -62,4 +112,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
-          git push origin $BRANCH_NAME || exit 1
+          git push origin $BRANCH_NAME || { echo "Erreur lors du push"; exit 1; }
