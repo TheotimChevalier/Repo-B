@@ -21,6 +21,11 @@ jobs:
           cd Repo-B
           git submodule update --init --recursive || exit 1
 
+      - name: Vérification des sous-modules
+        run: |
+          cd Repo-B
+          git submodule status || echo "Sous-module non initialisé"
+
       - name: Créer ou utiliser une branche basée sur l'utilisateur
         run: |
           cd Repo-B
@@ -37,7 +42,7 @@ jobs:
           cd Repo-B
           git submodule update --remote --merge || exit 1
           if git diff --quiet; then
-            echo "No changes to commit"
+            echo "Pas de modifications dans le sous-module"
           else
             git add .
             git commit -m "Update submodule Repo A by ${{ github.actor }}"
