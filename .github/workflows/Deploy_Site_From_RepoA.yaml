@@ -48,6 +48,14 @@ jobs:
             git commit -m "Mise à jour automatique du sous-module par ${{ github.actor }}"
           fi
 
+      - name: Diagnostic Git avant push
+        run: |
+          echo "==== DIAGNOSTIC AVANT PUSH ===="
+          git status
+          git log -1
+          git branch -r
+          git remote -v
+
       - name: Push des changements
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
