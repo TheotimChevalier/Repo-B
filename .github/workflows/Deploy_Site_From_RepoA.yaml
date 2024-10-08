@@ -42,10 +42,7 @@ jobs:
           git commit -m "Mise à jour automatique du sous-module par ${{ github.actor }}"
 
       - name: Push des changements
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
           git push origin $BRANCH_NAME
 
 
