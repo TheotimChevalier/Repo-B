@@ -70,6 +70,7 @@ jobs:
           git push origin $BRANCH_NAME || { echo "Erreur lors du push"; exit 1; }
 
 
+git submodule add https://github.com/TheotimChevalier/Repo-A.git apps/web/src
 
 
 # Désinitialiser tous les sous-modules
