@@ -68,9 +68,3 @@ jobs:
           echo "Pushing changes to remote repository"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
           git push origin $BRANCH_NAME || { echo "Erreur lors du push"; exit 1; }
-
-
-
-2024-10-09 07:50:58.929 [info] fatal: unable to access 'https://github.com/TheotimChevalier/Repo-A.git/': Could not resolve proxy: gateway.schneider.zscaler.net
-2024-10-09 07:50:58.948 [info] > git fetch [473ms]
-2024-10-09 07:50:58.949 [info] fatal: unable to access 'https://github.com/TheotimChevalier/Repo-B.git/': Could not resolve proxy: gateway.schneider.zscaler.net
