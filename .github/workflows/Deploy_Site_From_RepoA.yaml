@@ -68,4 +68,17 @@ jobs:
           echo "Pushing changes to remote repository"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
           git push origin $BRANCH_NAME || { echo "Erreur lors du push"; exit 1; }
-          
+
+
+
+
+update-submodule
+repository 'https://github.com/TheotimChevalier/Repo-A.git/' not found
+update-submodule
+clone of 'https://github.com/TheotimChevalier/Repo-A.git' into submodule path '/home/runner/work/Repo-B/Repo-B/apps/web/src' failed
+update-submodule
+repository 'https://github.com/TheotimChevalier/Repo-A.git/' not found
+update-submodule
+clone of 'https://github.com/TheotimChevalier/Repo-A.git' into submodule path '/home/runner/work/Repo-B/Repo-B/apps/web/src' failed
+update-submodule
+The process '/usr/bin/git' failed with exit code 1
