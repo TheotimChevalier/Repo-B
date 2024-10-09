@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: true
-          token: ${{ secrets.workflows_token }}  
+          token: ${{ secrets.WORKFLOWS_TOKEN }}  
           fetch-depth: 0
 
       - name: Configurer Git
@@ -64,8 +64,8 @@ jobs:
 
       - name: Push des changements
         env:
-        WORKFLOWS_TOKEN: ${{ secrets.workflows_token }}  
+        WORKFLOWS_TOKEN: ${{ secrets.WORKFLOWS_TOKEN }}  
         run: |
           echo "Pushing changes to remote repository"
-          git remote set-url origin https://x-access-token:${{ secrets.workflows_token }}@github.com/TheotimChevalier/Repo-B.git
+          git remote set-url origin https://x-access-token:${{ secrets.WORKFLOWS_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
           git push origin $BRANCH_NAME 
