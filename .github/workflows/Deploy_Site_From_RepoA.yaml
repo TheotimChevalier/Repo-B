@@ -70,4 +70,128 @@ jobs:
           echo "Pushing changes to remote repository"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
           git push origin $BRANCH_NAME || { echo "Erreur lors du push"; exit 1; }
+
+
+
+
+
+
+Gestion des Sous-modules et Workflows CI/CD
+Introduction
+Git propose une fonctionnalité appelée sous-modules qui permet d'inclure un dépôt Git dans un autre en tant que dépendance. Cela est particulièrement utile lorsque vous souhaitez réutiliser du code partagé (notre cas) ou des bibliothèques (possiblement intéressant pour d'autres projets) dans plusieurs projets tout en maintenant ces éléments de façon indépendante.
+
+Comment ajouter un sous-module
+Pour ajouter un sous-module dans votre projet, vous pouvez utiliser la commande suivante :
+
+bash
+Copy code
+git submodule add https://github.com/Name/Repo.git apps/web
+Dans cet exemple :
+
+https://github.com/Name/Repo.git est l'URL du dépôt du sous-module.
+apps/web est le chemin où le sous-module sera ajouté dans le projet parent.
+Explication du fonctionnement des sous-modules
+Un sous-module est essentiellement un lien vers un commit spécifique d'un autre dépôt. Vous pouvez penser à un sous-module comme un snapshot d'un autre dépôt à un instant donné. Les sous-modules ne suivent pas automatiquement les mises à jour du dépôt parent, vous devez manuellement :
+
+Mettre à jour les sous-modules pour suivre les nouveaux commits du projet source.
+Valider ces mises à jour dans le projet parent.
+Comment fonctionnent les sous-modules :
+Référence à un commit spécifique :
+
+Lorsque vous ajoutez un sous-module, Git enregistre l'URL et le commit du sous-module dans un fichier .gitmodules. Cela permet au projet parent de savoir quel commit du sous-module il utilise.
+Dépendance indépendante :
+
+Les sous-modules sont gérés indépendamment du dépôt parent. Cela signifie que les modifications dans le sous-module n'affectent pas automatiquement le projet parent, et vice versa. Pour mettre à jour le sous-module dans le projet parent, vous devez effectuer explicitement les opérations nécessaires.
+Mise à jour des sous-modules :
+
+Pour mettre à jour les sous-modules afin de suivre les derniers commits du projet source, vous devez exécuter :
+bash
+Copy code
+git submodule update --remote
+Cela synchronise le sous-module avec la dernière version du dépôt référencé.
+Initialisation des sous-modules :
+
+Après avoir cloné un projet contenant des sous-modules, vous devez initialiser les sous-modules avec la commande suivante :
+bash
+Copy code
+git submodule update --init --recursive
+Commandes utiles avec les sous-modules
+Ajouter un sous-module :
+
+bash
+Copy code
+git submodule add <repository> <path>
+Mettre à jour le sous-module avec les dernières modifications :
+
+bash
+Copy code
+git submodule update --remote
+Initialiser et cloner un projet contenant des sous-modules :
+
+bash
+Copy code
+git submodule update --init --recursive
+Supprimer un sous-module :
+
+bash
+Copy code
+git submodule deinit <path>
+git rm <path>
+git commit -m "Removed submodule"
+Automation avec des workflows
+Les workflows CI/CD sont mis en place pour automatiser la gestion des sous-modules et leur déploiement. Voici un aperçu du processus via deux workflows GitHub Actions :
+
+Workflow A
+Déclenché lors d'un push dans Repo A (le sous-module).
+Met à jour automatiquement Repo B, qui contient Repo A en tant que sous-module.
+Workflow B
+Déclenché automatiquement après la mise à jour de Repo A.
+Synchronise Repo B avec les dernières modifications du sous-module.
+Déploie le projet avec la nouvelle version du sous-module.
+Visualisation du processus avec Mermaid
+Voici une représentation séquentielle des interactions entre les deux workflows et les différents dépôts :
+
+mermaid
+Copy code
+sequenceDiagram
+    box Purple Repo A
+    participant SRCwebsite
+    participant WorkflowA
+    end
+    box blue Repo B
+    participant infra
+    participant Submodul (Repo A)
+    participant WorkflowB
+    end
+
+    SRCwebsite-->>WorkflowA: 1) push
+    WorkflowA->>WorkflowB: 3) activation workflow B
+    WorkflowB-->>SRCwebsite: 4) update submodul
+    WorkflowB-->>Submodul (Repo A): 5) Build
+    WorkflowB-->>infra: 6) Deployed
+Explication du diagramme :
+SRCwebsite (Repo A) effectue un push : Lorsqu'une modification est faite sur Repo A (le sous-module), cela déclenche le Workflow A.
+
+C'est un moment crucial car cela signifie qu'un changement important a été fait qui pourrait affecter d'autres projets.
+Workflow A met à jour Repo B : Après un push sur Repo A, Workflow A s'assure que les modifications sont envoyées à Repo B.
+
+Cela permet de synchroniser le projet parent avec les dernières modifications du sous-module.
+Workflow B est activé : Dès que Workflow A met à jour Repo B, Workflow B est déclenché automatiquement.
+
+Ce mécanisme de déclenchement est essentiel pour garantir que les mises à jour sont effectuées de manière cohérente et sans intervention manuelle.
+Mise à jour du sous-module : Workflow B met à jour le sous-module dans Repo B.
+
+Cette étape garantit que Repo B utilise la version la plus récente du sous-module.
+Compilation et déploiement : Le projet dans Repo B, contenant le sous-module mis à jour, est ensuite compilé (Build) et déployé (Deployed) dans l'infrastructure cible.
+
+Cela assure que le produit final est toujours basé sur les dernières versions des dépendances.
+Conclusion
+Avec ces workflows automatisés, la gestion des sous-modules devient simple et efficace. Chaque modification dans le sous-module déclenche automatiquement une mise à jour et un déploiement dans le projet parent, tout en isolant chaque contributeur dans sa propre branche. Cela garantit un processus sécurisé et évite les risques de briser le projet principal.
+
+Commandes de suppression sous-module
+Pour supprimer un sous-module, voici les étapes à suivre :
+
+bash
+Copy code
+$ git submodule deinit 
           
