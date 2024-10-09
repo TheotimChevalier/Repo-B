@@ -64,7 +64,7 @@ jobs:
 
       - name: Push des changements
         env:
-        WORKFLOWS_TOKEN: ${{ secrets.WORKFLOWS_TOKEN }}  
+          WORKFLOWS_TOKEN: ${{ secrets.WORKFLOWS_TOKEN }}  
         run: |
           echo "Pushing changes to remote repository"
           git remote set-url origin https://x-access-token:${{ secrets.WORKFLOWS_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
