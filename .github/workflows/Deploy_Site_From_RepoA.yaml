@@ -1,6 +1,6 @@
-#name: Mise à jour du sous-module
+name: Mise à jour du sous-module
 
-#on:
+on:
   push:
     branches:
       - main
@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: true
-   #       token: ${{ secrets.github_pat }}  # Assurez-vous que le nom correspond à celui défini dans les secrets
+          token: ${{ secrets.github_pat }}  # Assurez-vous que le nom correspond à celui défini dans les secrets
           fetch-depth: 0
 
       - name: Configurer Git
@@ -72,7 +72,7 @@ jobs:
 
       - name: Push des changements
         env:
-       #   GITHUB_TOKEN: ${{ secrets.github_pat }}  # Utilisez le même secret pour le push
+         GITHUB_TOKEN: ${{ secrets.github_pat }}  # Utilisez le même secret pour le push
         run: |
           echo "Pushing changes to remote repository"
           git remote set-url origin https://x-access-token:${{ secrets.github_pat }}@github.com/TheotimChevalier/Repo-B.git
