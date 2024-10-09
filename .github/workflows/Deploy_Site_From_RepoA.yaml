@@ -62,17 +62,9 @@ jobs:
             git commit -m "Mise à jour automatique du sous-module par ${{ github.actor }}" 
           fi
 
-      - name: Diagnostic Git avant push
-        run: |
-          echo "==== DIAGNOSTIC AVANT PUSH ===="
-          git status
-          git log -1
-          git branch -r
-          git remote -v
-
       - name: Push des changements
         env:
-         GITHUB_TOKEN: ${{ secrets.workflows_token }}  # Utilisez le même secret pour le push
+         GITHUB_TOKEN: ${{ secrets.workflows_token }}  
         run: |
           echo "Pushing changes to remote repository"
           git remote set-url origin https://x-access-token:${{ secrets.workflows_token }}@github.com/TheotimChevalier/Repo-B.git
