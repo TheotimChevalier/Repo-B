@@ -12,7 +12,6 @@ permissions:
   contents: write
   deployments: write
   issues: write
-  packages: write
   pull-requests: write
   repository-projects: write
   security-events: write
@@ -79,3 +78,7 @@ jobs:
           echo "Pushing changes to remote repository"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
           git push origin $BRANCH_NAME 
+
+
+comment je fait ça :
+Ok. It turns out I couldn't use github_token to checkout submodules, i have to create an access_token
