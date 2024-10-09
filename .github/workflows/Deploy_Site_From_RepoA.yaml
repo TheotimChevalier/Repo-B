@@ -29,11 +29,11 @@ jobs:
           token: ${{ secrets.WORKFLOWS_TOKEN }}  
           fetch-depth: 0
 
-      - name: Configure Git
-        run: |
-          echo "Configuration of Git"
-          git config user.name "TheotimChevalier"
-          git config user.email "Theotimc.chevalier@free.fr"
+      # - name: Configure Git
+      #   run: |
+      #     echo "Configuration of Git"
+      #     git config user.name "TheotimChevalier"
+      #     git config user.email "Theotimc.chevalier@free.fr"
 
       - name: Checking submodule status
         run: |
