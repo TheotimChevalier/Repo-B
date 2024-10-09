@@ -1,4 +1,4 @@
-name: Mise à jour du sous-module
+name: Submodule update
 
 on:
   push:
@@ -22,50 +22,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout du dépôt principal avec sous-modules
+      - name: Checkout of the main repository with submodules
         uses: actions/checkout@v3
         with:
           submodules: true
           token: ${{ secrets.WORKFLOWS_TOKEN }}  
           fetch-depth: 0
 
-      - name: Configurer Git
+      - name: Configure Git
         run: |
-          echo "Configuration de Git"
+          echo "Configuration of Git"
           git config user.name "TheotimChevalier"
           git config user.email "Theotimc.chevalier@free.fr"
 
-      - name: Vérification de l'état du sous-module
+      - name: Checking submodule status
         run: |
-          echo "Vérification de l'état du sous-module"
+          echo "Checking submodule status"
           git submodule status 
 
-      - name: Créer ou utiliser une branche basée sur l'utilisateur
+      - name: Submodule update
         run: |
-          echo "Création ou utilisation de la branche pour l'utilisateur"
-          BRANCH_NAME="update-${{ github.actor }}"
-          git fetch origin
-          if git rev-parse --verify origin/$BRANCH_NAME; then
-            git checkout $BRANCH_NAME
-          else
-            git checkout -b $BRANCH_NAME
-          fi
-
-      - name: Mise à jour du sous-module
-        run: |
-          echo "Mise à jour du sous-module"
+          echo "Submodule update"
           git submodule update --remote --merge 
           if git diff --quiet; then
-            echo "Pas de modifications dans le sous-module"
+            echo "No changes in submodule"
           else
             git add .
-            git commit -m "Mise à jour automatique du sous-module par ${{ github.actor }}" 
+            git commit -m "Automatic submodule update" 
           fi
 
-      - name: Push des changements
+      - name: Pushing changes
         env:
           WORKFLOWS_TOKEN: ${{ secrets.WORKFLOWS_TOKEN }}  
         run: |
           echo "Pushing changes to remote repository"
           git remote set-url origin https://x-access-token:${{ secrets.WORKFLOWS_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
-          git push origin $BRANCH_NAME 
+          git push origin main 
