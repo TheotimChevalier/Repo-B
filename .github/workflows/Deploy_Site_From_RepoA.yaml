@@ -31,7 +31,7 @@ jobs:
       - name: Vérification de l'état du sous-module
         run: |
           echo "Vérification de l'état du sous-module"
-          git submodule status || { echo "Échec de la vérification de l'état du sous-module"; exit 1; }
+          git submodule status 
 
       - name: Créer ou utiliser une branche basée sur l'utilisateur
         run: |
@@ -47,12 +47,12 @@ jobs:
       - name: Mise à jour du sous-module
         run: |
           echo "Mise à jour du sous-module"
-          git submodule update --remote --merge || { echo "Échec de la mise à jour du sous-module"; exit 1; }
+          git submodule update --remote --merge 
           if git diff --quiet; then
             echo "Pas de modifications dans le sous-module"
           else
             git add .
-            git commit -m "Mise à jour automatique du sous-module par ${{ github.actor }}" || echo "Aucun changement à commettre"
+            git commit -m "Mise à jour automatique du sous-module par ${{ github.actor }}" 
           fi
 
       - name: Diagnostic Git avant push
@@ -69,6 +69,6 @@ jobs:
         run: |
           echo "Pushing changes to remote repository"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
-          git push origin $BRANCH_NAME || { echo "Erreur lors du push"; exit 1; }
-          
+          git push origin $BRANCH_NAME 
+
 
