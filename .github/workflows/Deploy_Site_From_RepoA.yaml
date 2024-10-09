@@ -58,15 +58,3 @@ jobs:
           echo "Pushing changes to remote repository"
           git remote set-url origin https://x-access-token:${{ secrets.WORKFLOWS_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
           git push origin main 
-
-
-  Error: fatal: could not read Username for 'https://github.com': terminal prompts disabled
-  The process '/usr/bin/git' failed with exit code 128
-  Waiting 14 seconds before trying again
-  /usr/bin/git -c protocol.version=2 fetch --prune --progress --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
-  Error: fatal: could not read Username for 'https://github.com': terminal prompts disabled
-  The process '/usr/bin/git' failed with exit code 128
-  Waiting 17 seconds before trying again
-  /usr/bin/git -c protocol.version=2 fetch --prune --progress --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
-  Error: fatal: could not read Username for 'https://github.com': terminal prompts disabled
-  Error: The process '/usr/bin/git' failed with exit code 128
