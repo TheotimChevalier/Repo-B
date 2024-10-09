@@ -69,4 +69,17 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
           git push origin $BRANCH_NAME || { echo "Erreur lors du push"; exit 1; }
 
-          
+            /usr/bin/git submodule sync
+  /usr/bin/git -c protocol.version=2 submodule update --init --force
+  Submodule 'apps/web/src' (https://github.com/TheotimChevalier/Repo-A.git) registered for path 'apps/web/src'
+  Cloning into '/home/runner/work/Repo-B/Repo-B/apps/web/src'...
+  remote: Repository not found.
+  Error: fatal: repository 'https://github.com/TheotimChevalier/Repo-A.git/' not found
+  Error: fatal: clone of 'https://github.com/TheotimChevalier/Repo-A.git' into submodule path '/home/runner/work/Repo-B/Repo-B/apps/web/src' failed
+  Failed to clone 'apps/web/src'. Retry scheduled
+  Cloning into '/home/runner/work/Repo-B/Repo-B/apps/web/src'...
+  remote: Repository not found.
+  Error: fatal: repository 'https://github.com/TheotimChevalier/Repo-A.git/' not found
+  Error: fatal: clone of 'https://github.com/TheotimChevalier/Repo-A.git' into submodule path '/home/runner/work/Repo-B/Repo-B/apps/web/src' failed
+  Failed to clone 'apps/web/src' a second time, aborting
+  Error: The process '/usr/bin/git' failed with exit code 1
