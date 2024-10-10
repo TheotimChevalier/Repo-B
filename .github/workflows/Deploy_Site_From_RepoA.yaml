@@ -1,4 +1,4 @@
-name: Update Repo B on Change
+name: Submodule update
 
 on:
   push:
@@ -18,54 +18,40 @@ permissions:
   statuses: write
 
 jobs:
-  update-repo-b:
+  update-submodule:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repo A
+      - name: Checkout of the main repository with submodules
         uses: actions/checkout@v3
         with:
           submodules: true
-          token: ${{ secrets.WORKFLOWS_TOKEN }}  # Utilisation du token pour accéder à Repo A
+          token: ${{ secrets.WORKFLOWS_TOKEN }}  
           fetch-depth: 0
 
       - name: Configure Git
         run: |
-          echo "Configuration de Git"
           git config user.name "TheotimChevalier"
           git config user.email "Theotimc.chevalier@free.fr"
 
-      - name: Clone Repo B
+      - name: Checking submodule status
         run: |
-          echo "Clonage de Repo B avec sous-modules"
-          git clone https://x-access-token:${{ secrets.WORKFLOWS_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
-          cd Repo-B
-          # Configure l'URL du sous-module Repo A avec le token pour authentification
-          git config submodule.apps/web/src.url https://x-access-token:${{ secrets.WORKFLOWS_TOKEN }}@github.com/TheotimChevalier/Repo-A.git
-          git submodule update --init --recursive
+          git submodule status 
 
-      - name: Configure Git in Repo B
+      - name: Submodule update
         run: |
-          echo "Configuration de Git dans Repo B"
-          cd Repo-B
-          git config user.name "TheotimChevalier"
-          git config user.email "Theotimc.chevalier@free.fr"
-
-      - name: Update submodule in Repo B
-        run: |
-          cd Repo-B
-          echo "Mise à jour du sous-module dans Repo B"
-          git submodule update --remote --merge
+          echo "Submodule update"
+          git submodule update --remote --merge 
           if git diff --quiet; then
-            echo "Aucune modification dans le sous-module"
+            echo "No changes in submodule"
           else
             git add .
-            git commit -m "Update submodule from Repo A"
+            git commit -m "Automatic submodule update" 
           fi
 
-      - name: Push changes to Repo B
+      - name: Pushing changes
         env:
-          WORKFLOWS_TOKEN: ${{ secrets.WORKFLOWS_TOKEN }}  # Utilise le token pour pousser vers Repo B
+          WORKFLOWS_TOKEN: ${{ secrets.WORKFLOWS_TOKEN }}  
         run: |
-          cd Repo-B
-          echo "Pousser les modifications vers Repo B"
-          git push origin main
+          git remote set-url origin https://x-access-token:${{ secrets.WORKFLOWS_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
+          git push origin main 
