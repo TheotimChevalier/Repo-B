@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: Checkout of the main repository with submodules
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
           token: ${{ secrets.WORKFLOWS_TOKEN }}  
