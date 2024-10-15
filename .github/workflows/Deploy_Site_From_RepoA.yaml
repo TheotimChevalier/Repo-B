@@ -68,4 +68,4 @@ jobs:
         run: |
           echo "Pushing changes to remote repository"
           git remote set-url origin https://x-access-token:${{ secrets.WORKFLOWS_TOKEN }}@github.com/TheotimChevalier/Repo-B.git
-          git push origin $BRANCH_NAME 
+          git push --set upstream origin $BRANCH_NAME 
