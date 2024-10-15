@@ -122,3 +122,43 @@ https://docs.github.com/fr/actions/writing-workflows/choosing-what-your-workflow
 https://www.youtube.com/watch?v=fvqqTI3WscI
 
 https://www.youtube.com/watch?v=mFFXuXjVgkU
+
+
+
+
+
+
+
+
+
+
+
+
+
+```mermaid
+sequenceDiagram
+    box green quartzds.github.io
+    participant SRCwebsite
+    end
+
+    box Purple quartzds.github.io SE VPN
+    participant SRCwebsiteVPN
+    participant cloud-sync.yml
+    end
+
+    box blue Infra
+    participant Submodule_update.yml
+    participant SRCwebsiteVPN_(Submodule)
+    participant Infra
+    end
+
+    box red Server
+    participant Server
+    end
+
+    SRCwebsiteVPN-->>SRCwebsite: 1) Crown job: fetch once per day
+    cloud-sync.yml->>Submodule_update.yml: 2) activation Submodule_update.yml when SRCwebsiteVPN is update
+    Submodule_update.yml-->>SRCwebsiteVPN: 3) update submodul
+    Submodule_update.yml-->>SRCwebsiteVPN_(Submodule): 4) Build
+    Infra-->>Server: 5) Deployed
+```
