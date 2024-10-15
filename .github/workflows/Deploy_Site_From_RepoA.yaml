@@ -1,9 +1,8 @@
 name: Mise à jour du sous-module
 
 on:
-  push:
-    branches:
-      - Branche_name
+  repository_dispatch:
+    type: [update_submodule]
   workflow_dispatch:
 
 permissions:
