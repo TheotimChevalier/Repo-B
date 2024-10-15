@@ -3,7 +3,7 @@ name: Mise à jour du sous-module
 on:
   push:
     branches:
-      - main
+      - Branche_name
   workflow_dispatch:
 
 permissions:
