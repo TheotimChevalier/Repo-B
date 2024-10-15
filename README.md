@@ -162,3 +162,8 @@ sequenceDiagram
     Submodule_update.yml-->>SRCwebsiteVPN_(Submodule): 4) Build
     Infra-->>Server: 5) Deployed
 ```
+1. **SRCwebsiteVPN** initiates a daily fetch of updates via a cron job.
+2. **cloud-sync.yml** is triggered to activate **Submodule_update.yml** whenever **SRCwebsiteVPN** is updated.
+3. **Submodule_update.yml** updates the submodule in **SRCwebsiteVPN**.
+4. The updated submodule is built by **Submodule_update.yml**.
+5. Finally, the updated project is deployed to the **Server**.
